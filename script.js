@@ -11,10 +11,23 @@ function createGrid(size) {
     square.classList.add("square");
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
+    square.style.backgroundColor = `rgba(0, 0, 0 ,0)`;
+    square.dataset.opacity = 0;
+
     container.appendChild(square);
 
     square.addEventListener("mouseenter", () => {
-      square.style.backgroundColor = "#333"
+      if (square.dataset.opacity == 0) {
+         const randomR = Math.floor(Math.random() * 256);
+         const randomG = Math.floor(Math.random() * 256);
+         const randomB = Math.floor(Math.random() * 256);
+         square.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
+      }
+
+      let currentOpacity = parseFloat(square.dataset.opacity);
+      currentOpacity = Math.min(currentOpacity + 0.1, 1);
+      square.dataset.opacity = currentOpacity;
+      square.style.opacity = currentOpacity;
     });
   } 
 }
