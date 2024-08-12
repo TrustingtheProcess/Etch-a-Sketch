@@ -2,8 +2,9 @@ const container = document.querySelector(".container");
 const button = document.querySelector("#new-grid");
 
 function createGrid(size) {
+  // Clear the existing grid 
   container.textContent = '';
-
+  
   const squareSize = container.clientWidth / size;
 
   for (let i = 0; i < size * size; i++) {
@@ -16,18 +17,21 @@ function createGrid(size) {
 
     container.appendChild(square);
 
+    // Add hover effect with random color and darkening effect
     square.addEventListener("mouseenter", () => {
       if (square.dataset.opacity == 0) {
+        // Generate random RGB color
          const randomR = Math.floor(Math.random() * 256);
          const randomG = Math.floor(Math.random() * 256);
          const randomB = Math.floor(Math.random() * 256);
          square.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`;
       }
 
+      // Increases opacity by 10% on each interaction
       let currentOpacity = parseFloat(square.dataset.opacity);
-      currentOpacity = Math.min(currentOpacity + 0.1, 1);
+      currentOpacity = Math.min(currentOpacity + 0.1, 1); //Ensure compacity doesn't exceed 1
       square.dataset.opacity = currentOpacity;
-      square.style.opacity = currentOpacity;
+      square.style.opacity = currentOpacity; // Apply new opacity
     });
   } 
 }
