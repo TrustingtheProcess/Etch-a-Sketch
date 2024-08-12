@@ -1,19 +1,20 @@
 const container = document.querySelector(".container");
-const button = document.querySelector("#new-grid");
+const newGridButton = document.querySelector("#new-grid");
+const resetButton = document.querySelector("#reset");
 
 function createGrid(size) {
   // Clear the existing grid 
   container.textContent = '';
   
-  const squareSize = container.clientWidth / size;
+  const squareSize = container.clientWidth / size ;
 
   for (let i = 0; i < size * size; i++) {
     const square = document.createElement("div");
     square.classList.add("square");
     square.style.width = `${squareSize}px`;
     square.style.height = `${squareSize}px`;
-    square.style.backgroundColor = `rgba(0, 0, 0 ,0)`;
-    square.dataset.opacity = 0;
+    square.style.backgroundColor =`rbga(0, 0, 0, 0)`;
+    square.dataset.opacity = 0; //This sets the initial opacity value to 0
 
     container.appendChild(square);
 
@@ -36,7 +37,7 @@ function createGrid(size) {
   } 
 }
 
-button.addEventListener('click', () => {
+newGridButton.addEventListener('click', () => {
   let gridSize = prompt("Enter the number of squares per side (max 100):", 16);
 
   gridSize = Math.min(Math.max(parseInt(gridSize), 1), 100);
@@ -44,4 +45,12 @@ button.addEventListener('click', () => {
   createGrid(gridSize);
 });
 
-createGrid(16);
+function resetGrid() {
+  const squares = document.querySelectorAll(".square");
+  squares.forEach(square => {
+    square.style.backgroundColor = `rbga(0, 0, 0, 0)`; // Reset the color
+    square.style.opacity = 0;
+  });
+}
+
+resetButton.addEventListener('click', resetGrid);

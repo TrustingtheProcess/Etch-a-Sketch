@@ -8,11 +8,15 @@ body {
   background-color: #f0f0f0;
 }
 
+h1 {
+  font-family: cursive;
+}
 button {
   margin-bottom: 20px;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .container {
@@ -24,5 +28,4 @@ button {
 
 .square {
   border: 1px solid #ccc;
-  transition: background-color 0.2s;
 }
