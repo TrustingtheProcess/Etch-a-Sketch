@@ -1,5 +1,6 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -7,15 +8,21 @@ body {
   background-color: #f0f0f0;
 }
 
+button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
-  width: 320px;
+  width: 960px;
   height: 320px;
 }
 
 .square {
-  width: 20px;
-  height: 20px;
   border: 1px solid #ccc;
+  transition: background-color 0.2s;
 }
