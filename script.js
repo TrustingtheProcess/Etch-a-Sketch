@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 const newGridButton = document.querySelector("#new-grid");
-const resetButton = document.querySelector("#reset");
+const clearButton = document.querySelector("#clear");
 
 function createGrid(size) {
   // Clear the existing grid 
@@ -45,12 +45,12 @@ newGridButton.addEventListener('click', () => {
   createGrid(gridSize);
 });
 
-function resetGrid() {
+function clearGrid() {
   const squares = document.querySelectorAll(".square");
   squares.forEach(square => {
-    square.style.backgroundColor = `rbga(0, 0, 0, 0)`; // Reset the color
-    square.style.opacity = 0;
+    square.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Reset background color
+    square.dataset.opacity = 0;
   });
 }
 
-resetButton.addEventListener('click', resetGrid);
+clearButton.addEventListener('click', clearGrid);
