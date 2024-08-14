@@ -27,5 +27,6 @@ button {
 }
 
 .square {
-  border: 1px solid #ccc;
+  box-shadow: 0 0 0 1px #ccc; /* Simulates a border */
+  transition: background-color 0.2s;
 }
