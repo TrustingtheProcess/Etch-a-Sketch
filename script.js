@@ -50,6 +50,7 @@ function clearGrid() {
   squares.forEach(square => {
     square.style.backgroundColor = 'rgba(0, 0, 0, 0)'; // Reset background color
     square.dataset.opacity = 0;
+    square.style.opacity = 1;
   });
 }
 
